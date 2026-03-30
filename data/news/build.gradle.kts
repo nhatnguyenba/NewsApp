@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
+    id("kotlin-kapt")
 }
 
 android {
@@ -40,4 +41,16 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    implementation(project(":domain:news"))
+
+    api(project(":core:core-network"))
+    implementation(project(":core:core-database"))
+    implementation(project(":core:core-common"))
+
+//    implementation(libs.hilt)
+//    kapt(libs.hilt.compiler)
+
+    implementation(libs.koin.android)
+    implementation(libs.koin.compose)
 }
